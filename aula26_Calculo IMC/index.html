@@ -12,6 +12,12 @@
 <body>
     <section class="container">
         <h1>Calcule seu IMC</h1>
+        <p id="informacao">Menos do que 18,5____Abaixo do peso</br>
+           Entre 18,5 e 24,9_______Peso normal</br>
+           Entre 25 e 29,9_________Sobrepeso</br>
+           Entre 30 e 34,9_________Obesidade grau 1</br>
+           Entre 35 e 39,9_________Obesidade grau 2</br>
+           Mais do que 40_________Obesidade grau 1</p>
 
         <form action="/" id="formulario" method="POST">
             <label for="peso">Peso</label>
@@ -22,6 +28,10 @@
 
             <button type="submit">Enviar</button>
         </form>
+
+        <div id="resultado">
+
+        </div>
     </section>
 
     <script src="./assets/js/main.js"></script>
