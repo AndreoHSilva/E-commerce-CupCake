@@ -11,4 +11,4 @@ const div = document.createElement('div');
 
 for(let i ; i < elementos.length; i++){
     console.log(elementos[i]);
-}
+} 
