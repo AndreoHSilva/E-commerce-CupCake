@@ -8,17 +8,12 @@ Use a função com números de 0 a 100
 */
 
 function valor(x){
-    if (x % 3 === 0 && x % 5 === 0){
-        return 'FizzBuzz';
-    }else if (x % 3 === 0){
-        return 'Fizz';
-    }else if (x % 5 === 0){
-        return 'Buzz';
-    }else{
-        return x
+    if (x % 3 === 0 && x % 5 === 0) return 'FizzBuzz';
+    if (x % 3 === 0) return 'Fizz';
+    if (x % 5 === 0) return 'Buzz';
+    return x
     }
-}
 
 for (let i = 0; i <= 100; i++){
-    console.log(valor(i));
+    console.log(i, valor(i));
 }

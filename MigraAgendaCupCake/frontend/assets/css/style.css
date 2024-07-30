@@ -1,0 +1,13 @@
+h1{
+    color: rgb(28, 7, 145);   
+}
+
+th, td{
+    border: 2px solid rgb(70, 68, 68);
+    text-align: center;
+}
+
+img {
+    width: 850px; /* Defina a largura desejada */
+    height: 500px; /* Defina a altura desejada */
+}

@@ -1,0 +1,45 @@
+<%- include('includes/head'); %>
+<%- include('includes/nav'); %>
+    
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-2"></div>
+
+        <div class="col-lg-30 my-3">
+          <h1 class="text-center">CupCake-Cake</h1>
+          <p class="text-center lead">Delícia mesmo é comer nosso sabor favorito de CupCake em boa companhia.</p>
+          
+          <%- include('includes/messages'); %>
+          
+          <% if (produtos.length > 0) { %>
+            <!--div class="responsive-table"-->
+              <% produtos.forEach(produto => { %>
+              <img src="img/<%= produto.produto %>" class="imagem" width="850px" height="500px">
+              <p><%= produto.nomeProduto %>
+              </br>
+              Preço: R$ <%= produto.preco %>
+              </br>
+              Categoria: <%= produto.categoria %>
+              </br>
+              Igredientes: <%= produto.igredientes %></p>
+              
+              <% if(user){ %>
+              <a href="/cadastro-produto/index/<%=produto._id%>">Editar</a>
+              <a class="text-danger" href="/cadastro-produto/delete/<%= produto._id %>" >Excluir</a>
+              <% }; %>
+              <br>
+              <br>
+              <% }); %>
+
+              
+            <!--/div-->
+          <% }else{ %>
+            <p class="text-center lead">Não existem produtos cadastrado.</p> 
+          <% } %>
+
+        </div>
+        <div class="col-lg-2"></div>
+      </div>
+    </div>
+
+<%- include('includes/footer'); %>
