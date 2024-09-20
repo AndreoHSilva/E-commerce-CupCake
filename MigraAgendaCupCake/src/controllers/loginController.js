@@ -1,7 +1,9 @@
 const Login = require('../models/LoginModel');
 
 exports.index = (req, res) => {
-    if(req.session.user) return res.render('login-logado');
+    //if(req.session.user) return res.render('login-logado');
+    //Teste para retornar a pasta home se estiver logado 
+    if(req.session.user) return res.render('index'); 
     res.render('login');
 };
 

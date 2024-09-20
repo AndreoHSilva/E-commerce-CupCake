@@ -1,6 +1,6 @@
 const express = require('express');
 const route = express.Router();
-//const homeController = require('./src/controllers/homeController');
+const homeController = require('./src/controllers/homeController');
 const produtosController = require('./src/controllers/produtosController');
 const produtosController_ = require('./src/controllers/produtosController_');
 const loginController = require('./src/controllers/loginController');
@@ -15,6 +15,7 @@ route.get('/', produtosController.index);
 
 // Rotas de login
 route.get('/login/index', loginController.index);
+//route.get('/login/index', homeController.index);
 
 route.post('/login/register', loginController.register);
 route.post('/login/login', loginController.login);

@@ -1,7 +1,8 @@
 <%- include('includes/head'); %>
 <%- include('includes/nav'); %>
 
-    <div class="container">
+
+   <div class="container">
       <div class="row">
         <div class="col-lg-2"></div>
 
@@ -27,9 +28,12 @@
             </div>
             <div class="form-group">
               <label>Telefone</label>
-              <input value="<%= contato.telefone %>" type="tel" class="form-control" name="telefone">
+              <input value="<%= contato.telefone %>" type="tel" class="form-control" name="telefone" >
             </div>
             <div class="form-group">
+              <table cellspacing = "10">
+              <tr>
+              <td>
               <select name="uf" id="uf" class="form-control" width="50">Estado
                 <option value="estado">Selecione o Estado</option> 
                 <option value="ac">Acre</option> 
@@ -59,8 +63,9 @@
                 <option value="se">Sergipe</option> 
                 <option value="sp">São Paulo</option> 
                 <option value="to">Tocantins</option>
-              </select></td>
-              <table>
+              </select>
+            </td>
+          </tr>
                 <tr>
                   <td><label for="cidade">Cidade</label></td>
                   <td><label for="cep">CEP</label></td>
@@ -75,20 +80,21 @@
                 </tr>
                 <tr>
                   <td><input value="<%= contato.logradouro %>" id="logradouro" display="flex" type="text" class="form-control" name="logradouro"></td>
-                  <td><input value="<%= contato.numero %>" id="numero" type="text" class="form-control" name="numero"></td>
+                  <td><input value="<%= contato.numero %>" id="numero" type="text" class="form-control" name="numero" size="2" maxlength="6"></td>
                 </tr>
-              </table>
             </div>
+          </table>
             <div class="form-group">
               
             </div>
             <button type="submit" class="btn btn-primary">Salvar</button>
+         
           </form>
 
         </div>
 
         <div class="col-lg-2"></div>
       </div>
-    </div>
+    </div> 
 
 <%- include('includes/footer'); %>

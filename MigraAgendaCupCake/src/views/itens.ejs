@@ -14,8 +14,8 @@
           <% if (produtos.length > 0) { %>
             <!--div class="responsive-table"-->
               <% produtos.forEach(produto => { %>
-              <img src="/frontend/assets/img/<%= produto.produto %>" class="imagem" width="850px" height="500px">
-              <p><%= produto.nomeProduto %>
+              <img src="/frontend/assets/img/<%= produto.produto %>" class="itens" >
+              <p class="p"><%= produto.nomeProduto %>
               </br>
               Preço: R$ <%= produto.preco %>
               </br>

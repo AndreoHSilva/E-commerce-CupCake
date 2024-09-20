@@ -3,11 +3,39 @@ h1{
 }
 
 th, td{
-    border: 2px solid rgb(70, 68, 68);
-    text-align: center;
+    text-align: left;
 }
 
-img {
+.itens {
     width: 850px; /* Defina a largura desejada */
     height: 500px; /* Defina a altura desejada */
+    padding:15px;
+	background: #b1b1c3;
+}
+
+body {
+    background-color: #e6b7bc;
+}
+
+.lead {
+    color: aliceblue;
+}
+
+.p{
+    color: #6b4545;
+    text-decoration:solid;
+}
+
+.aaa{
+    margin: 30px;
+    border: 4px solid #999;
+
+}
+
+.aaa span{
+    position: absolute;
+}
+
+fieldset{
+    border: 4px #999;
 }
