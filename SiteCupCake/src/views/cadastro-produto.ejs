@@ -1,0 +1,52 @@
+<%- include('includes/head'); %>
+<%- include('includes/nav'); %>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-2"></div>
+
+        <div class="col-lg-8 my-3">
+          <h1 class="text-center">Cadastro de Produtos</h1>
+          <p class="text-center lead">Todos os campos do formulário abaixo são necessário o preencimento.</p>
+
+          <%- include('includes/messages'); %>
+
+          <% if(produto._id) { %>
+          <form action="/cadastro-produto/edit/<%= produto._id %>" method="POST">
+          <% } else { %>
+          <form action="/cadastro-produto/register" method="POST">
+          <% } %>  
+            <input type="hidden" name="_csrf" value=<%= csrfToken %>>
+            <div class="form-group">
+              <label>Nome do Produto</label>
+              <input value="<%= produto.nomeProduto %>" type="text" class="form-control" name="nomeProduto">
+            </div>
+            <div class="form-group">
+              <label>Preço</label>
+              <input value="<%= produto.preco %>" type="text" class="form-control" name="preco">
+            </div>
+            <div class="form-group">
+              <label>Categoria</label>
+              <input value="<%= produto.categoria %>" type="text" class="form-control" name="categoria">
+            </div>
+            <div class="form-group">
+              <label>Igredientes</label>
+              <input value="<%= produto.igredientes %>" type="text" class="form-control" name="igredientes">
+            </div>
+            <!--div class="form-group">-->
+              <label>Produto</label>
+              <input  type="file" accept="file/*" value="<%= produto.produto %>" class="form-control" name="produto">
+            <!--/div>-->
+            <div class="form-group">
+              
+            </div>
+            <button type="submit" class="btn btn-primary">Salvar</button>
+          </form>
+
+        </div>
+
+        <div class="col-lg-2"></div>
+      </div>
+    </div>
+
+<%- include('includes/footer'); %>
