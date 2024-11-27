@@ -1,0 +1,82 @@
+<%- include('includes/head'); %>
+<%- include('includes/nav'); %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-2"></div>
+
+    <% if (user.isAdmin) { %>
+      <div class="col-lg-8 my-3">
+        <h1 class="text-center">Clientes</h1>
+        <p class="text-center lead">Lista de clientes.</p>
+      <% } else { %>
+        <div class="col-lg-8 my-3">
+          <h1 class="text-center">Minha conta</h1>
+      <% } %>
+
+      <%- include('includes/messages'); %>
+        <% if (user.isAdmin) { %>
+          <% contatos.forEach(contato => { %>
+            <% if (!contato.isAdmin) { %>
+              <div class="responsive-table">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Nome</th>
+                      <th>Email</th>
+                      <th>Estado</th>
+                      <th>Telefone</th>
+                      <th>Logradouro</th>
+                      <th>&nbsp;</th>
+                      <th>&nbsp;</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><%= contato.nome %></td>
+                      <td><%= contato.email %></td>
+                      <td><%= contato.estado %></td>
+                      <td><%= contato.telefone %></td>
+                      <td><%= contato.logradouro + ' ' + contato.numero %></td>
+                    </tr>
+                <% } %>
+              <% }); %>
+            <% } else { %>
+              <div class="responsive-table">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Nome</th>
+                      <th>Email</th>
+                      <th>Estado</th>
+                      <th>Telefone</th>
+                      <th>Logradouro</th>
+                      <th>&nbsp;</th>
+                      <th>&nbsp;</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><%= user.nome %></td>
+                      <td><%= user.email %></td>
+                      <td><%= user.estado %></td>
+                      <td><%= user.telefone %></td>
+                      <td><%= user.logradouro + ' ' + user.numero %></td>
+                      <td><a href="/cadastro/index/<%= user._id %>">Editar</a></td>
+                      <td><a class="text-danger" href="/cadastro/delete/<%= user._id %>">Excluir</a></td>
+                    </tr>
+            <% } %>
+          </tbody>
+        </table>
+      </div>
+
+      <% if (contatos.length === 0) { %>
+        <p class="text-center lead">Não existem contatos na sua agenda.</p>
+      <% } %>
+    </div>
+    
+    <div class="col-lg-2"></div>
+  </div>
+</div>
+
+<%- include('includes/footer'); %>

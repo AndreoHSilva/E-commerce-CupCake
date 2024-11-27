@@ -1,0 +1,75 @@
+<%- include('includes/head'); %>
+<%- include('includes/nav'); %>
+    
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3"></div>
+
+        <div class="col-lg-30 my-3">
+          <h1 class="text-center">Lista de produtos</h1>
+            <p class="text-center lead">Delícia mesmo é comer nosso sabor favorito de CupCake em boa companhia.</p>
+          
+            <%- include('includes/messages'); %>
+
+              <div class="responsive-table">
+                <% if (produtos.length > 0) { %>
+                  <% produtos.forEach(produto => { %>
+                    <img class="itens" src="/frontend/assets/img/<%= produto.produto %>"  >
+                    <p class="p"><Strong><%= produto.nomeProduto %></Strong>
+                    </br>  
+                    Preço: R$ <%= produto.preco %>
+                    </br>
+                    Categoria: <%= produto.categoria %>
+                    </br>
+                    </p>
+                    Ingredientes:
+                    <div class="igredientes">
+                    <p class="igre"> <%= produto.igredientes %></p>
+                    </div>
+
+                    <% if (user) { %>
+                      <% if (!user.isAdmin) { %>
+                        <form action="/carrinho/adicionar/<%= produto._id%>" method="POST">
+                          <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                          
+                          <div class="form-group">
+                              <label for="quantidade">Quantidade</label>
+                              <br>
+                              <input 
+                                  id="quantidade"
+                                  value="<%= produto.quantidade %>" 
+                                  type="number" 
+                                  name="quantidade" 
+                                  class="formC" 
+                                  min="1" 
+                                  required
+                                  placeholder="selecione a quantidade"
+                              >
+                          </div>
+                          <button type="submit" class="btn btn-outline-primary">
+                              <img src="../../../frontend/assets/img/Carrinho.png" height="20px" width="30px" alt="Carrinho"/> 
+                              Adicionar ao Carrinho
+                          </button>
+                        </form>
+                      <% } %>
+                    <% } %>
+
+                    <% if(user){ %>
+                      <% if(user.isAdmin){ %>
+                        <a href="/cadastro-produto/index/<%=produto._id%>">Editar</a>
+                        <a class="text-danger" href="/cadastro-produto/delete/<%= produto._id %>" >Excluir</a>
+                      <% } %>
+                    <% } %>
+                    <br>
+                    <br>
+                  <% }); %>
+                <% }else{ %>
+                  <p class="text-center lead">Não existem produtos cadastrado.</p> 
+                <% } %>
+              </div>
+        </div>
+        <div class="col-lg-2"></div>
+      </div>
+    </div>
+
+<%- include('includes/footer'); %>

@@ -1,0 +1,77 @@
+h1{
+    color: rgb(28, 7, 145);   
+}
+
+th, td{
+    text-align: left;
+}
+
+body {
+    background-color: #e791ba;
+}
+
+.lead {
+    color: aliceblue;
+    text-align: left;
+}
+
+.p{
+    color: #2b2e28;
+    font-family: sans-serif;
+    margin-bottom: 1px;
+}
+
+.aaa{
+    margin: 30px;
+    border: 4px solid #999;
+
+}
+
+.aaa span{
+    position: absolute;
+}
+
+fieldset{
+    border: 4px #999;
+}
+
+.igredientes{
+    width: 650px;
+    height: 50px;
+    
+    padding: auto;
+    background-color: #eccdcd;
+}
+
+.igre{
+    margin-left: 3px;
+}
+
+.us-two--box--bxpEdPp{
+    width: 800px;
+}
+
+.box{
+    float: left;
+    width: 33,33%;
+    padding: 15px;
+    margin-left: 35px;
+}
+
+.itens {
+    width: 650px; /* Defina a largura desejada */
+    height: 400px; /* Defina a altura desejada */
+    padding:15px;
+	background: #b1b1c3;
+}
+
+.img-box{
+    width: 320px; /* Defina a largura desejada */
+    height: 180px;
+    border: solid #f3eef1;
+}
+
+.btn{
+    background:  #eccdcd;
+    margin-top: 4px;
+}

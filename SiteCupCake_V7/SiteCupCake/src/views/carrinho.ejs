@@ -1,0 +1,66 @@
+<%- include('includes/head'); %>
+<%- include('includes/nav'); %>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3"></div>
+
+        <div class="col-lg-6 my-3">
+            <h1 class="text-center">Carrinho <img src="../../frontend/assets/img/Carrinho.png" height="40px" width="50px"></h1>
+            <p class="text-center lead">Delícia mesmo é comer nosso sabor favorito de CupCake em boa companhia.</p>
+        
+            <%- include('includes/messages'); %>   
+
+            <% if (produtos.length > 0) { %>
+                <form class="form-group" action="/carrinho/pagamento" method="POST">
+                    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                    <button class="btn btn-outline-primary" type="submit">
+                        Ir para o pagamento
+                    </button>
+                </form> 
+                <div class="responsive-table">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Preço</th>
+                                <th>Quantidade</th>
+                                <th>&nbsp;</th>
+                                <th>&nbsp;</th>
+                            </tr>
+                        </thead>
+                        <tbody>   
+                            <% produtos.forEach(produto => { %>
+                                <tr>
+                                    <td><%= produto.nomeProduto %></td>
+                                    <td><%= produto.preco.replace('.', ',') %></td>
+                                    <td>
+                                        <form action="/carrinho/atualizar/<%= produto.idProduto%>" method="POST" class="form-inline">
+                                            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                                            <button type="submit" name="quantidade" value="<%= produto.quantidade - 1 %>" class="btn btn-outline-secondary btn-sm" 
+                                                    <% if (produto.quantidade <= 1) { %> disabled <% } %> >
+                                                -
+                                            </button>
+                                            <span class="mx-2"><%= produto.quantidade %></span>
+                                            <button type="submit" name="quantidade" value="<%= produto.quantidade + 1 %>" class="btn btn-outline-secondary btn-sm">
+                                                +
+                                            </button>
+                                        </form>
+                                    </td>
+                                    <td><a class="text-danger" href="/carrinho/remover/<%= produto.idProduto %>">Excluir</a></td>
+                                </tr>
+                            <% }); %>
+                        </tbody>
+                    </table>
+
+                    <div class="text-right">
+                        <h4>Total: R$ <%= totalCarrinho.toFixed(2).replace('.', ',') %></h4>
+                    </div>
+                </div>    
+            <% } %>
+        </div>  
+        <div class="col-lg-3"></div>
+    </div>
+</div>
+
+<%- include('includes/footer'); %>
