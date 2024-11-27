@@ -20,7 +20,7 @@ Este projeto é um e-commerce para a venda de cupcakes. Ele permite que usuário
 
 ## Instalação
 1. Clone este repositório:
-   git clone [https://github.com/seu-usuario/ecommerce-cupcake.git](https://github.com/AndreoHSilva/E-commerce-CupCake.git)
+   git clone https://github.com/AndreoHSilva/E-commerce-CupCake.git
    
 Navegue até o diretório do projeto:
 
